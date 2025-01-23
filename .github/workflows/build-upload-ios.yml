@@ -1,6 +1,10 @@
 ## Fonctionnel mais impossible d'installer des ipa sans jailbreak donc je désactive
 name: Build IOS
 run-name: Creating Production Ready 🚀
+on:
+  push:
+    tags:
+      - 'xxxx'
 
 jobs:
   build:
