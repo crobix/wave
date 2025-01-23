@@ -13,9 +13,22 @@ jobs:
       name: checkout repository
       uses: actions/checkout@v4
 
-    -
-      name: build archive
-      run: cd ios/App && xcodebuild clean -scheme "I am Groot" -workspace App.xcworkspace -sdk iphoneos  -configuration Debug  -destination generic/platform=iOS archive CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO -archivePath build/YourApp.xcarchive
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18.x
+
+    - name: install dependencies
+      run: npm ci
+
+    - name: Create Build Folder
+      run: npm run build-prod
+
+    - name: Capacitor copy
+      run: npx cap sync && cd ios && pod install --repo-update
+
+    - name: Build IPA
+      run: cd ios/App && xcodebuild -project App.xcodeproj -scheme "App"
 
     -
       name: export ipa
