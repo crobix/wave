@@ -25,7 +25,7 @@ jobs:
       run: npm run build-prod
 
     - name: Capacitor copy
-      run: npx cap sync && cd ios/App && pod install --repo-update
+      run: npx cap sync && cd ios/App && pod install
 
     - name: Build IPA
       run: cd ios/App && xcodebuild -project App.xcodeproj -scheme "App"
