@@ -15,7 +15,7 @@ jobs:
 
     -
       name: build archive
-      run: cd ios && xcodebuild clean -scheme "I am Groot" -workspace App.xcworkspace -sdk iphoneos  -configuration Debug  -destination generic/platform=iOS archive CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO -archivePath build/YourApp.xcarchive
+      run: cd ios/App && xcodebuild clean -scheme "I am Groot" -workspace App.xcworkspace -sdk iphoneos  -configuration Debug  -destination generic/platform=iOS archive CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO -archivePath build/YourApp.xcarchive
 
     -
       name: export ipa
