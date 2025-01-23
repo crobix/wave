@@ -3,7 +3,7 @@ run-name: Creating Production Ready 🚀
 on:
   push:
     branches:
-      - master-build
+      - develop-build
 
 jobs:
   build:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
         with:
-          ref: master-build
+          ref: develop-build
 
       - name: Setup java
         uses: actions/setup-java@v4
