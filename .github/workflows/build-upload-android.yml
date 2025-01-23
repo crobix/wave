@@ -36,7 +36,7 @@ jobs:
         run: if [ ! -d "./android" ]; then npx cap add android; fi
 
       - name: Capacitor copy
-        run: npx cap copy
+        run: npx cap sync
 
       - name: Build app bundle
         run: cd android && ./gradlew bundle && ./gradlew assembleDebug
