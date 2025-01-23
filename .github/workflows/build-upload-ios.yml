@@ -1,4 +1,4 @@
-name: Build App
+name: Build IOS
 run-name: Creating Production Ready 🚀
 on:
   push:
@@ -20,6 +20,9 @@ jobs:
 
     - name: install dependencies
       run: npm ci
+
+    - name: Install CocoaPods
+      run: sudo gem install cocoapods
 
     - name: Create Build Folder
       run: npm run build-prod
