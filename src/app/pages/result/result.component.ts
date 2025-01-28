@@ -29,9 +29,6 @@ import {TranslateModule} from '@ngx-translate/core';
 import {NgIf} from '@angular/common';
 import {ParametersService} from '../../services/parameters.service';
 import {Session} from '../../models/session';
-import {compressImage} from '../../utils/image';
-import imageCompression from 'browser-image-compression';
-import drawImageInCanvas = imageCompression.drawImageInCanvas;
 
 @Pipe({standalone: true, name: 'pluck'})
 export class PluckPipe implements PipeTransform {
@@ -327,10 +324,6 @@ export class ResultComponent implements OnInit {
             this.canvas.getContext('2d').drawImage(img, 0, 0, 1000, 1000);
           };
           img.src = this.target.image;
-
-          compressImage(drawImageInCanvas(img), 'image/png').then((imageData) => {
-            this.target.image = imageData;
-          })
         } else {
           this.toastService.initiate({
             title: 'Erreur',
